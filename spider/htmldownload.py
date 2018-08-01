@@ -10,5 +10,6 @@ class HtmlDownloader(object):
         response = urllib.request.urlopen(url)
         # code不为200则请求失败
         if response.getcode() != 200:
+            print("down load url failed")
             return None
         return response.read()

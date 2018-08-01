@@ -31,12 +31,13 @@ class SpiderMain(object):
                     break
                 count += 1
             except:
-                print("craw failed")
+               print("craw failed")
 
         self.outputer.output_html()
 
 
 if __name__ == "__main__":
-    root_url = "http://baike.baidu.com/item/Python/407313"
+    root_url = "http://www.sina.com.cn/"
+    #root_url = "https://baike.baidu.com/item/c%E8%AF%AD%E8%A8%80/105958?fromtitle=c&fromid=7252092"
     obj_spider = SpiderMain()
     obj_spider.craw(root_url)
