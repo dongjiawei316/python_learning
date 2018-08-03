@@ -6,6 +6,20 @@ from urllib.parse import urljoin
 
 class HtmlParser(object):
 
+    def parse_test(self, page_url, html_cont):
+        if page_url is None or html_cont is None:
+            print("url is None,", page_url)
+            return
+        soup = BeautifulSoup(html_cont, "html.parser", from_encoding="utf-8")
+        links = soup.find_all("a")
+        for link in links:
+            print(link)
+            new_url = link['href']
+            print(new_url)
+            # 获取到的url不完整，学要拼接
+            #new_full_url = urljoin(page_url, new_url)
+            #print(new_full_url)
+
     def parse(self, page_url, html_cont):
         if page_url is None or html_cont is None:
             print("url is None,", page_url)

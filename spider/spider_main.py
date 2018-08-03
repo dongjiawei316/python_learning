@@ -23,6 +23,8 @@ class SpiderMain(object):
                 # 下载网页
                 html_cont = self.downloader.download(new_url)
                 # 解析网页
+                self.parser.parse_test(new_url, html_cont)
+                """
                 new_urls, new_data = self.parser.parse(new_url, html_cont)
                 self.urls.add_new_urls(new_urls)
                 # 网页输出器收集数据
@@ -30,6 +32,8 @@ class SpiderMain(object):
                 if count == 10:
                     break
                 count += 1
+                """
+
             except:
                print("craw failed")
 
@@ -38,6 +42,7 @@ class SpiderMain(object):
 
 if __name__ == "__main__":
     root_url = "http://www.sina.com.cn/"
+    root_url = "http://www.sohu.com/"
     #root_url = "https://baike.baidu.com/item/c%E8%AF%AD%E8%A8%80/105958?fromtitle=c&fromid=7252092"
     obj_spider = SpiderMain()
     obj_spider.craw(root_url)

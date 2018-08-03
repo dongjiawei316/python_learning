@@ -54,17 +54,24 @@ for child in soup.descendants:
     print(str(i)+ "  ",child)
 
 # 遍历多个内容
-for string in soup.strings:
-    print(repr(string))
+#for string in soup.strings:
+#    print(repr(string))
 
 #过滤掉空白内容
-for string in soup.stripped_strings:
-    print(repr(string))
+#for string in soup.stripped_strings:
+#    print(repr(string))
 
 #父节点
-print(soup.title.parent)
+#print(soup.title.parent)
 
+"""
 content = soup.head.title.string
 for parent in  content.parents:
     print(parent.name)
    # print(parent.attrs)
+"""
+print(soup.find_all('b'))
+
+import re
+for tag in soup.find_all(re.compile("^b")):
+    print(tag.name)
